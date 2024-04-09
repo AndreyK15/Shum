@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Работа с формами</title>
+</head>
+<body>
+        <script src="js/vue.global.js"></script> 
+        <script src="js/raschet_shuma.js"></script>
+    <div id="input_shum">
+<div v-for="(value,index) in min">
+ <tr> 
+    <td><input v-model.number="min[index]" type="text"></td>
+    <td><input v-model.number="max[index]" type="text"></td>
+    <td><input v-model.number="eq[index]" type="text"></td>
+</tr>
+</table> 
+</div>
+<button @click="printValues">Вывод массива</button>
+<h4>{{raschetMinimuma}}</h4>
+<h4>{{raschetMaximuma}}</h4>
+<h4>{{raschetEquvalent}}</h4>
+ </div>
+ 
+</body>
+</html>

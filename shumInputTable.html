@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Работа с формами</title>
+</head>
+<body>
+        <script src="js/vue.global.js"></script> 
+    <div id="shuin">
+    <table border="1">
+        <caption>Измерение шума</caption>
+<tr> 
+    <td><input v-model.number="min[0]" type="text"></td>
+    <td><input v-model.number="max[0]" type="text"></td>
+    <td><input v-model.number="eq[0]" type="text"></td>
+</tr>
+<tr> 
+    <td><input v-model.number="min[1]" type="text"></td>
+    <td><input v-model.number="max[1]" type="text"></td>
+    <td><input v-model.number="eq[1]" type="text"></td>
+</tr>
+<tr> 
+   <td><input v-model.number="min[2]" type="text"></td>
+    <td><input v-model.number="max[2]" type="text"></td>
+    <td><input v-model.number="eq[2]" type="text"></td> 
+</tr>
+       </table>  
+              <button @click="consolePrint">Submit</button> 
+            <button @click="vvodvMassive">vvodvMassive</button>
+           <hr>
+           
+            <shu-counter></shu-counter>
+    
+    
+    
+        </div>
+<script>
+       const Shuin ={
+        data(){
+            return{
+                min: [1,2,3],
+                max:[4,5,6],
+                eq:[7,8,9]
+                                        }
+        },
+        methods:{
+           consolePrint(){console.log(this.min1),
+           console.log(this.eq3) },
+           vvodvMassive(){
+            let shuIn4=[{ min:"",max:"",eq:""}]
+             for (let i = 0; i < 3; i++) {
+            shuIn4[i]=[{min:this.min[i],max:this.max[i],eq:this.eq[i] }
+            ]    
+             }                                                                                                                                                                                                                                                                                                                                                                                               
+           //console.log(shuIn2[2]['max'])
+           console.log(shuIn4)                      
+            }
+           }
+        }
+          const shuin= Vue.createApp(Shuin)
+          shuin.component('shu-counter',{
+            data(){
+            return{
+                count: 0,
+                min:1,
+                max:3,
+                eq:2,
+                m:1,
+                mx:2,
+                e:3
+               }
+        },
+        props:['min','max','eq'] ,
+        template:`
+        <div class="shu-input">
+            <input v-model.number="min" type="text" >
+<input v-model.number="max"  type="text" >
+<input v-model.number="eq" type="text" >
+        <h4> {{min}} / {{max}}-{{eq}}</h4>
+        <hr>
+        <h4>{{count}}<h4>
+            <h4>{{min}}<h4>
+        <h4>{{max}}<h4>
+            <h4>{{eq}}<h4>
+        <button @click="count+=1,min+=1,max+=1,eq+=1">
+            Увеличить 
+            </button>
+            
+    <td><input v-model.number="m" type="text"></td>
+    <td><input v-model.number="mx" type="text"></td>
+    <td><input v-model.number="e" type="text"></td>
+    <hr>
+    <h4>{{m}}-{{mx}}/{{e}}<h4>
+
+            </div>`
+    })
+          shuin.mount('#shuin')
+         </script>
+</body>
+</html>

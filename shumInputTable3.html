@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Работа с формами</title>
+</head>
+<body>
+        <script src="js/vue.global.js"></script> 
+    <div id="input_shum">
+<div v-for="(value,index) in min">
+ <tr> 
+    <td><input v-model.number="min[index]" type="text"></td>
+    <td><input v-model.number="max[index]" type="text"></td>
+    <td><input v-model.number="eq[index]" type="text"></td>
+</tr>
+</table> 
+</div>
+<button @click="printValues">Вывод массива</button>
+<h4>Min: {{raschetMinimuma}}</h4>
+<h4>Max: {{raschetMaximuma}}</h4>
+<h4>EqEQ: {{raschetEquvalent}}</h4>
+<h4>Max: {{zapolnenieArrayMax}}</h4>
+<h4>Eq: {{zapolnenieArrayEq}}</h4>
+<h4> Min : {{zapolnenieArrayMin}}</h4>
+ </div>
+<script>
+const Shum1={
+data(){
+    return {
+        minimum:0,
+        maximum:0,
+        equvalent:0,
+        min: [],
+        max:[],
+        eq: []              
+    }
+},
+computed: {
+raschetMinimuma(){
+ this.minimum=0
+   this.minimum=Math.min(...this.min )   
+     return this.minimum
+ },
+raschetMaximuma(){
+ this.maximum=0
+   this.maximum=Math.max(...this.min )   
+     return this.maximum
+ },
+ raschetEquvalent(){
+this.equvalent=0
+eqv=0
+for (let i = 0; i < this.eq.length  ;i++) {
+    eqv=eqv+this.eq[i]  
+}
+return eqv/this.eq.length
+ } ,
+  zapolnenieArrayMax(){
+for (let i = 0; i < 9  ;i++) {
+    this.max.push(31+i) 
+ }
+return this.max
+  },
+zapolnenieArrayEq(){
+for (let i = 0; i <9  ;i++) {
+         this.eq.push(21+i) 
+}
+return this.eq
+  },
+zapolnenieArrayMin(){
+for (let i = 0; i < 9  ;i++) {
+         this.min.push(1+i) 
+}
+return this.min
+  }  
+},
+methods:{
+printValues(){
+    console.log(this.min)
+    console.log(this.max)
+    console.log(this.eq)
+ }
+          }
+}
+const shum1=Vue.createApp(Shum1)
+shum1.mount('#input_shum')
+ </script>
+</body>
+</html>

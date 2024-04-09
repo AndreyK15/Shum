@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Работа с формами</title>
+</head>
+<body>
+        <script src="js/vue.global.js"></script> 
+    <div id="input_shum">
+<div v-for="(value,index) in values">
+ <tr> 
+    <td><input v-model.number="values[index]" type="text"></td>
+    <td><input v-model.number="values2[index]" type="text"></td>
+    <td><input v-model.number="values3[index]" type="text"></td>
+</tr>
+</table> 
+</div>
+<button @click="printValues">Вывод массива</button>
+ </div>
+<script>
+const Shum1={
+data(){
+    return {
+values:[1,2,3,4,5,6,7,8,9],
+values2:[21,22,23,24,25,26,27,28,29],
+values3:[31,32,33,34,35,36,37,38,39],
+    }
+},
+methods:{
+printValues(){
+    console.log(this.values)
+    console.log(this.values2)
+    console.log(this.values3)
+}
+
+}
+}
+const shum1=Vue.createApp(Shum1)
+shum1.mount('#input_shum')
+
+
+
+
+ </script>
+</body>
+</html>
